@@ -1,0 +1,30 @@
+.gridItem {
+    border-radius: 4px;
+    display: block;
+    margin-top: 30px;
+    padding-top: 100%;
+    color: white;
+}
+
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    /* justify-content: space-around;  */
+}
+.flex-item {
+    background: tomato;
+    margin: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+    /* flex: 1 0 auto; */
+    aspect-ratio: 1 / 1 ;
+    width: 50px;
+    height: 50px;
+}
+
+/* Item can be any kind of box from here . flex/grid/block */
+.flex-item {display:grid;align-items:center;justify-content:center;}

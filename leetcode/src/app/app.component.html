@@ -1,0 +1,27 @@
+<div class="container-fluid mt-3">
+  <h1>Spiral Matrix</h1>
+
+      <div class="row">
+        <div class="col-sm">
+          <form [formGroup]="form" (ngSubmit)="spiralMatrix()">
+
+            <label># Rows</label> 
+            <input type="number" [readonly]="isRunning" (input)="resetMatrix()" oninput="this.value = this.value.replace(/\D+/g, '')" onKeyDown="if(this.value.length==1) return false;" inputmode="numeric" min="1" max="9" class="form-control mb-3" style="max-width:100px" formControlName="rows">
+        
+            <label># Columns</label> 
+            <input type="number" [readonly]="isRunning" (input)="resetMatrix()" oninput="this.value = this.value.replace(/\D+/g, '')" onKeyDown="if(this.value.length==1) return false;" inputmode="numeric" min="1" max="9" class="form-control mb-3" style="max-width:100px" formControlName="cols">
+    
+            <button [disabled]="isRunning" type="submit" class="btn btn-success">Run</button>
+          </form>
+
+        </div>
+        <div class="col-sm p-2">
+          <div class="flex-container"  *ngFor="let item of [].constructor(form.value.rows); let i = index">
+            <div class="flex-item" *ngFor="let item of [].constructor(form.value.cols); let j = index"  [ngStyle]="{'background-color': matrix && i < matrix.length && j < matrix[0].length && matrix[i][j] === true ? 'green' : 'black' }">
+              {{(j + 1) + (i * form.value.cols)}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div>
